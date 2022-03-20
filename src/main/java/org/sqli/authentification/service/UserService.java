@@ -1,23 +1,13 @@
 package org.sqli.authentification.service;
+import org.springframework.http.ResponseEntity;
+import org.sqli.authentification.dto.RequestUser;
 
 
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.query.FluentQuery;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import org.sqli.authentification.dao.UserDao;
-import org.sqli.authentification.entitie.User;
+public interface UserService   {
 
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
-@Repository
-public  interface UserService extends JpaRepository<User, Integer> {
+    ResponseEntity<?> findByLoginPassword(String login, String password);
 
-    Optional<User> findByLogin(String login);
-    Optional<User> findUserByPassword(String password);
+    RequestUser addUserGroup(RequestUser user);
+
+    String deleteUserLogin(String login);
 }

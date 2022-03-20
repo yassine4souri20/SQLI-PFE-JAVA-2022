@@ -14,31 +14,32 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "LOGIN")
+    @Column(name = "login")
     private String login;
 
-    @Column(name = "PASSWORD")
+    @Column(name = "password")
     private String password;
 
 
-    @Column(name = "ENABLE" ,nullable = false, columnDefinition = "integer default 1")
+    @Column(name = "enabled" ,nullable = false, columnDefinition = "integer default 1")
     private boolean  enabled;
 
-    @Column(name = "LOGINATTEMPTS",nullable = false, columnDefinition = "integer default 0")
-    private int loginAttemts;
+    @Column(name = "loginattempts",nullable = false, columnDefinition = "integer default 0")
+    private int loginAttempts;
 
 
 
     @ManyToOne
-    @JoinColumn(name = "GROUP_ID")
+    @JoinColumn(name = "group_id")
     private Group groupId;
 
     @Override
@@ -48,7 +49,7 @@ public class User {
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", enabled=" + enabled +
-                ", loginAttemts=" + loginAttemts +
+                ", loginAttemts=" + loginAttempts +
                 ", groupId=" + groupId +
                 '}';
     }
