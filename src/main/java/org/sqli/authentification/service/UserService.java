@@ -1,13 +1,20 @@
 package org.sqli.authentification.service;
 import org.springframework.http.ResponseEntity;
+import org.sqli.authentification.dto.Errors;
 import org.sqli.authentification.dto.RequestUser;
+import org.sqli.authentification.entitie.User;
 
 
-public interface UserService   {
+public interface UserService {
 
     ResponseEntity<?> findByLoginPassword(String login, String password);
 
-    RequestUser addUserGroup(RequestUser user);
+    void incrementeAttempts(User user);
 
-    String deleteUserLogin(String login);
+    ResponseEntity<Errors> isAccountNonLocked(String login);
+
+
+    Object addUser(RequestUser user);
+
+    Object deleteUserByLogin(String login);
 }

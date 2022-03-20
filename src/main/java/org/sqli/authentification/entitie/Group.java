@@ -21,7 +21,7 @@ public class Group {
     @Column(unique = true)
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "group_id")
     private List<User> users;
 }
 

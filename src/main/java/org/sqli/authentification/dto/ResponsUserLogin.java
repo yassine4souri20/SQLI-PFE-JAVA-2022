@@ -1,7 +1,6 @@
 package org.sqli.authentification.dto;
 
 import lombok.*;
-import org.springframework.stereotype.Service;
 
 @Builder
 @Getter
@@ -9,10 +8,9 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResponsUserLogin {
-    private  int id;
-    private  String login;
-    private  String password;
-
+    private int id;
+    private String login;
+    private String group;
 
 
 //
